@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz Pendidikan Pencegahan Dadah – SMK RLKT Lasah</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hijau: #1a7a4a;
+    --hijau-muda: #28a96a;
+    --hijau-terang: #3ecf8e;
+    --kuning: #f9c31f;
+    --merah: #e84040;
+    --biru-gelap: #0d1f2d;
+    --putih: #f9fdf9;
+    --kelabu: #e8f4ee;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #0d2b1a 0%, #0d3d25 50%, #0a2d1e 100%);
+    min-height: 100vh;
+    color: var(--biru-gelap);
+    overflow-x: hidden;
+  }
+
+  /* Corak latar belakang */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle at 20% 20%, rgba(62,207,142,0.07) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, rgba(249,195,31,0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .bekas-utama {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 28px 24px 24px;
+    background: linear-gradient(135deg, #1a7a4a, #0f5c35);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+
+  .logo-ribbon {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    padding: 6px 16px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #b8f0d4;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .header h1 span {
+    color: var(--kuning);
+  }
+
+  .header .sekolah-nama {
+    font-size: 0.82rem;
+    color: #a8dfc0;
+    font-weight: 600;
+  }
+
+  .header .ubk {
+    font-size: 0.75rem;
+    color: #7ecfa4;
+    margin-top: 2px;
+  }
+
+  /* BORANG MURID */
+  .kad-borang {
+    background: #fff;
+    border-radius: 18px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    animation: muncul 0.5s ease;
+  }
+
+  @keyframes muncul {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .kad-borang h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    color: var(--hijau);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .label-input {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 6px;
+    display: block;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e0ede6;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+    color: var(--biru-gelap);
+    background: #f6fdf9;
+    margin-bottom: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .input-field:focus {
+    border-color: var(--hijau-muda);
+    box-shadow: 0 0 0 3px rgba(40,169,106,0.15);
+  }
+
+  .butang-mula {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #1a7a4a, #28a96a);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(26,122,74,0.35);
+  }
+
+  .butang-mula:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26,122,74,0.45);
+  }
+
+  .butang-mula:active { transform: translateY(0); }
+
+  /* KUIZ */
+  .kad-soalan {
+    background: #fff;
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    animation: muncul 0.4s ease;
+    display: none;
+  }
+
+  .progres-bar-bekas {
+    background: rgba(255,255,255,0.1);
+    border-radius: 50px;
+    height: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .progres-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--hijau-terang), var(--kuning));
+    border-radius: 50px;
+    transition: width 0.4s ease;
+  }
+
+  .nombor-soalan {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--hijau-muda);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .badge-jenis {
+    background: #e8f6ef;
+    color: var(--hijau);
+    padding: 2px 10px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  .teks-soalan {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a2e1f;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  /* Pilihan jawapan */
+  .pilihan-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pilihan-butang {
+    width: 100%;
+    padding: 13px 16px;
+    background: #f4faf7;
+    border: 2px solid #d8ede3;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 0.95rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: #2a3d2f;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pilihan-butang:hover {
+    background: #e6f5ed;
+    border-color: var(--hijau-muda);
+    transform: translateX(3px);
+  }
+
+  .pilihan-butang.dipilih {
+    background: #e0f5ea;
+    border-color: var(--hijau);
+    color: var(--hijau);
+  }
+
+  .pilihan-butang.betul {
+    background: #d4f5e4;
+    border-color: #1a7a4a;
+    color: #0f5c35;
+  }
+
+  .pilihan-butang.salah {
+    background: #fde8e8;
+    border-color: var(--merah);
+    color: var(--merah);
+  }
+
+  .huruf-pilihan {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: rgba(26,122,74,0.12);
+    color: var(--hijau);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  /* Betul/Salah */
+  .bs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .bs-butang {
+    padding: 16px;
+    border-radius: 14px;
+    border: 2px solid #d8ede3;
+    background: #f4faf7;
+    font-size: 1.1rem;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .bs-butang.betul-pilihan:hover { background: #e0f5ea; border-color: var(--hijau); color: var(--hijau); }
+  .bs-butang.salah-pilihan:hover { background: #fde8e8; border-color: var(--merah); color: var(--merah); }
+  .bs-butang.dipilih.betul { background: #d4f5e4; border-color: #1a7a4a; color: #0f5c35; }
+  .bs-butang.dipilih.salah { background: #fde8e8; border-color: var(--merah); color: var(--merah); }
+
+  /* Isi tempat kosong */
+  .input-jawapan {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid #d8ede3;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+    background: #f4faf7;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .input-jawapan:focus {
+    border-color: var(--hijau-muda);
+    box-shadow: 0 0 0 3px rgba(40,169,106,0.15);
+  }
+
+  .input-jawapan.betul { border-color: #1a7a4a; background: #d4f5e4; }
+  .input-jawapan.salah { border-color: var(--merah); background: #fde8e8; }
+
+  /* Maklum balas */
+  .maklum-balas {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    display: none;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .maklum-balas.betul {
+    background: #d4f5e4;
+    color: #0f5c35;
+    display: flex;
+  }
+
+  .maklum-balas.salah {
+    background: #fde8e8;
+    color: #b52020;
+    display: flex;
+  }
+
+  /* Navigasi */
+  .nav-kuiz {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .butang-nav {
+    flex: 1;
+    padding: 13px;
+    border-radius: 12px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .butang-semak {
+    background: linear-gradient(135deg, #1a7a4a, #28a96a);
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(26,122,74,0.3);
+  }
+
+  .butang-semak:hover { transform: translateY(-1px); box-shadow: 0 5px 16px rgba(26,122,74,0.4); }
+
+  .butang-seterusnya {
+    background: #e8f4ee;
+    color: var(--hijau);
+    display: none;
+  }
+
+  .butang-seterusnya:hover { background: #d4ece0; }
+
+  /* KEPUTUSAN */
+  .kad-keputusan {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    animation: muncul 0.5s ease;
+    display: none;
+  }
+
+  .bulatan-markah {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    position: relative;
+  }
+
+  .bulatan-markah::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: conic-gradient(var(--hijau-terang) var(--peratus), #e0ede6 0%);
+    z-index: -1;
+  }
+
+  .bulatan-markah::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: -1;
+  }
+
+  .markah-angka {
+    font-size: 2.2rem;
+    color: var(--hijau);
+    line-height: 1;
+  }
+
+  .markah-jumlah {
+    font-size: 0.8rem;
+    color: #7a9e8a;
+  }
+
+  .nama-murid-keputusan {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #1a2e1f;
+    margin-bottom: 4px;
+  }
+
+  .kelas-keputusan {
+    font-size: 0.85rem;
+    color: #7a9e8a;
+    margin-bottom: 20px;
+  }
+
+  .status-keputusan {
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+
+  .status-lulus { background: #d4f5e4; color: #0f5c35; }
+  .status-gagal { background: #fde8e8; color: #b52020; }
+
+  /* Semakan jawapan */
+  .semakan-tajuk {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--hijau);
+    text-align: left;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e8f4ee;
+  }
+
+  .item-semakan {
+    text-align: left;
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    background: #f4faf7;
+    border-left: 4px solid #d8ede3;
+  }
+
+  .item-semakan.betul { border-left-color: var(--hijau-terang); background: #edfaf3; }
+  .item-semakan.salah { border-left-color: var(--merah); background: #fff5f5; }
+
+  .item-semakan .soalan-mini {
+    font-weight: 700;
+    color: #2a3d2f;
+    margin-bottom: 4px;
+  }
+
+  .item-semakan .jwp-murid { font-size: 0.82rem; color: #555; }
+  .item-semakan .jwp-betul { font-size: 0.82rem; color: var(--hijau); font-weight: 700; }
+
+  /* Butang email */
+  .bekas-emel {
+    background: #f4faf7;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .bekas-emel p {
+    font-size: 0.85rem;
+    color: #5a7a65;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .butang-emel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #1a7a4a, #28a96a);
+    color: #fff;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.95rem;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0 4px 16px rgba(26,122,74,0.3);
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .butang-emel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26,122,74,0.4);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .footer-info {
+    text-align: center;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.72rem;
+    margin-top: 24px;
+    padding-bottom: 10px;
+  }
+
+  /* Ikon */
+  .ikon { font-size: 1.2em; }
+
+  /* Loading */
+  .loading {
+    text-align: center;
+    padding: 30px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+  }
+
+  .spinner {
+    width: 36px; height: 36px;
+    border: 3px solid rgba(255,255,255,0.15);
+    border-top-color: var(--hijau-terang);
+    border-radius: 50%;
+    animation: pusing 0.8s linear infinite;
+    margin: 0 auto 12px;
+  }
+
+  @keyframes pusing { to { transform: rotate(360deg); } }
+
+  .tersembunyi { display: none !important; }
+
+  .cip-no {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--hijau);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="bekas-utama">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-ribbon">🎓 SMK RLKT Lasah</div>
+    <h1>Kuiz <span>Pencegahan Dadah</span></h1>
+    <div class="sekolah-nama">Sekolah Menengah Kebangsaan RLKT Lasah</div>
+    <div class="ubk">Unit Bimbingan &amp; Kaunseling | Cikgu Ayu</div>
+  </div>
+
+  <!-- BORANG MURID -->
+  <div class="kad-borang" id="bahagian-borang">
+    <h2>✏️ Maklumat Murid</h2>
+    <label class="label-input">Nama Penuh</label>
+    <input type="text" class="input-field" id="nama-murid" placeholder="Masukkan nama penuh anda...">
+    <label class="label-input">Kelas</label>
+    <input type="text" class="input-field" id="kelas-murid" placeholder="Contoh: Tingkatan 4 Amanah">
+    <button class="butang-mula" onclick="mulaKuiz()">🚀 Mula Kuiz</button>
+  </div>
+
+  <!-- LOADING -->
+  <div class="kad-borang tersembunyi" id="bahagian-loading">
+    <div class="loading">
+      <div class="spinner"></div>
+      Sedang memuatkan soalan kuiz...
+    </div>
+  </div>
+
+  <!-- SOALAN KUIZ -->
+  <div id="bahagian-kuiz" class="tersembunyi">
+    <div class="kad-borang" style="padding:16px 20px; margin-bottom:16px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="font-size:0.82rem; font-weight:700; color:#555;">
+        <span id="label-nama-atas">Murid</span>
+      </div>
+      <div style="font-size:0.82rem; font-weight:800; color:var(--hijau);">
+        Soalan <span id="nombor-semasa">1</span>/15
+      </div>
+    </div>
+    <div class="progres-bar-bekas" style="background:rgba(255,255,255,0.15); margin-bottom:16px;">
+      <div class="progres-bar" id="progres-bar" style="width:0%"></div>
+    </div>
+    <div id="paparan-soalan"></div>
+  </div>
+
+  <!-- KEPUTUSAN -->
+  <div class="kad-keputusan" id="bahagian-keputusan"></div>
+
+  <div class="footer-info">© 2025 SMK RLKT Lasah · Unit Bimbingan &amp; Kaunseling</div>
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// DATA SOALAN KUIZ
+// ═══════════════════════════════════════
+const bankSoalan = [
+  {
+    jenis: "aneka",
+    soalan: "Apakah maksud dadah dalam konteks penyalahgunaan dadah?",
+    pilihan: ["Ubat-ubatan yang dibenarkan oleh doktor", "Bahan yang boleh mengubah fungsi badan dan minda secara berbahaya", "Suplemen makanan untuk kesihatan", "Vitamin dan mineral untuk tumbesaran"],
+    jawapan: 1
+  },
+  {
+    jenis: "aneka",
+    soalan: "Antara berikut, manakah BUKAN termasuk dalam kategori dadah berbahaya di Malaysia?",
+    pilihan: ["Heroin", "Syabu (Methamphetamine)", "Ganja", "Aspirin (ubat sakit kepala biasa)"],
+    jawapan: 3
+  },
+  {
+    jenis: "aneka",
+    soalan: "Apakah akibat jangka panjang penggunaan dadah kepada otak?",
+    pilihan: ["Meningkatkan kecerdasan", "Kerosakan sel otak dan masalah ingatan", "Memperkuat daya tumpuan", "Tiada kesan kepada otak"],
+    jawapan: 1
+  },
+  {
+    jenis: "aneka",
+    soalan: "Di bawah Akta Dadah Berbahaya 1952 Malaysia, apakah hukuman bagi mengedar dadah?",
+    pilihan: ["Denda sahaja", "Penjara 3 tahun", "Hukuman mati mandatori atau penjara seumur hidup", "Khidmat masyarakat"],
+    jawapan: 2
+  },
+  {
+    jenis: "aneka",
+    soalan: "Manakah antara berikut merupakan tanda-tanda seseorang mungkin penagih dadah?",
+    pilihan: ["Aktif dalam sukan dan bersosial", "Mata merah, badan kurus, gelagat berubah-ubah", "Keputusan peperiksaan meningkat", "Tidur awal dan bangun awal"],
+    jawapan: 1
+  },
+  {
+    jenis: "aneka",
+    soalan: "Apakah peranan AADK (Agensi Anti Dadah Kebangsaan) di Malaysia?",
+    pilihan: ["Mengedarkan dadah perubatan kepada hospital", "Mencegah, merawat dan memulihkan penagih dadah", "Mengawal harga ubat-ubatan", "Menguatkuasakan cukai tembakau"],
+    jawapan: 1
+  },
+  {
+    jenis: "aneka",
+    soalan: "Apakah yang dimaksudkan dengan 'ketergantungan dadah'?",
+    pilihan: ["Mengambil ubat mengikut preskripsi doktor", "Keadaan di mana seseorang tidak boleh berfungsi tanpa dadah", "Simpanan ubat-ubatan di rumah", "Penggunaan suplemen sukan"],
+    jawapan: 1
+  },
+  {
+    jenis: "betulsalah",
+    soalan: "Ganja adalah dadah yang tidak berbahaya dan tidak menyebabkan ketagihan.",
+    jawapan: false
+  },
+  {
+    jenis: "betulsalah",
+    soalan: "Penagihan dadah boleh berlaku pada sesiapa sahaja, termasuk remaja sekolah.",
+    jawapan: true
+  },
+  {
+    jenis: "betulsalah",
+    soalan: "Seseorang yang pernah menagih dadah TIDAK boleh pulih sepenuhnya dan menjalani kehidupan normal.",
+    jawapan: false
+  },
+  {
+    jenis: "betulsalah",
+    soalan: "Rakan sebaya merupakan salah satu faktor risiko utama seseorang remaja terjebak dalam penyalahgunaan dadah.",
+    jawapan: true
+  },
+  {
+    jenis: "betulsalah",
+    soalan: "Tekanan emosi dan masalah keluarga boleh mendorong seseorang mencuba dadah.",
+    jawapan: true
+  },
+  {
+    jenis: "isi",
+    soalan: "Kempen 'Bebas Dadah' di Malaysia diketuai oleh agensi yang dikenali sebagai ______.",
+    jawapan: ["aadk", "agensi anti dadah kebangsaan"]
+  },
+  {
+    jenis: "isi",
+    soalan: "Proses pemulihan penagih dadah di pusat serenti melibatkan rawatan ______ dan psikologi.",
+    jawapan: ["fizikal", "perubatan", "medis"]
+  },
+  {
+    jenis: "isi",
+    soalan: "Salah satu cara terbaik untuk menolak tawaran dadah daripada rakan adalah dengan berkata '______' dengan tegas.",
+    jawapan: ["tidak", "no", "tidak mahu", "tolak"]
+  }
+];
+
+// ═══════════════════════════════════════
+// PEMBOLEH UBAH GLOBAL
+// ═══════════════════════════════════════
+let namaMurid = "";
+let kelasMurid = "";
+let indeksSemasa = 0;
+let markahMurid = 0;
+let jawapanMurid = [];
+let telahSemak = false;
+
+// ═══════════════════════════════════════
+// FUNGSI UTAMA
+// ═══════════════════════════════════════
+function mulaKuiz() {
+  namaMurid = document.getElementById('nama-murid').value.trim();
+  kelasMurid = document.getElementById('kelas-murid').value.trim();
+
+  if (!namaMurid) { alert("Sila masukkan nama penuh anda."); return; }
+  if (!kelasMurid) { alert("Sila masukkan kelas anda."); return; }
+
+  document.getElementById('bahagian-borang').classList.add('tersembunyi');
+  document.getElementById('bahagian-loading').classList.remove('tersembunyi');
+
+  setTimeout(() => {
+    document.getElementById('bahagian-loading').classList.add('tersembunyi');
+    document.getElementById('bahagian-kuiz').classList.remove('tersembunyi');
+    document.getElementById('label-nama-atas').textContent = namaMurid;
+    paparSoalan(0);
+  }, 1500);
+}
+
+function paparSoalan(indeks) {
+  indeksSemasa = indeks;
+  telahSemak = false;
+  const soalan = bankSoalan[indeks];
+  const peratus = (indeks / bankSoalan.length) * 100;
+
+  document.getElementById('nombor-semasa').textContent = indeks + 1;
+  document.getElementById('progres-bar').style.width = peratus + '%';
+
+  const jenisBadge = soalan.jenis === 'aneka' ? '🔤 Pilihan Aneka' :
+                     soalan.jenis === 'betulsalah' ? '✅ Betul / Salah' : '✍️ Isi Tempat Kosong';
+
+  let htmlPilihan = '';
+
+  if (soalan.jenis === 'aneka') {
+    const huruf = ['A', 'B', 'C', 'D'];
+    htmlPilihan = `<div class="pilihan-grid">` +
+      soalan.pilihan.map((p, i) =>
+        `<button class="pilihan-butang" onclick="pilihJawapan(${i})" id="pilihan-${i}">
+          <span class="huruf-pilihan">${huruf[i]}</span>${p}
+        </button>`
+      ).join('') + `</div>`;
+  } else if (soalan.jenis === 'betulsalah') {
+    htmlPilihan = `<div class="bs-grid">
+      <button class="bs-butang betul-pilihan" onclick="pilihBS(true)" id="butang-betul">✅ BETUL</button>
+      <button class="bs-butang salah-pilihan" onclick="pilihBS(false)" id="butang-salah">❌ SALAH</button>
+    </div>`;
+  } else {
+    htmlPilihan = `<input type="text" class="input-jawapan" id="input-isi" placeholder="Taip jawapan anda di sini...">`;
+  }
+
+  const adaSeterusnya = indeks < bankSoalan.length - 1;
+  const labelNav = adaSeterusnya ? 'Seterusnya ➡️' : '🏁 Lihat Keputusan';
+
+  document.getElementById('paparan-soalan').innerHTML = `
+    <div class="kad-soalan" style="display:block;">
+      <div class="nombor-soalan">
+        <span class="cip-no">${indeks + 1}</span>
+        Soalan ${indeks + 1} daripada ${bankSoalan.length}
+        <span class="badge-jenis">${jenisBadge}</span>
+      </div>
+      <div class="teks-soalan">${soalan.soalan}</div>
+      ${htmlPilihan}
+      <div class="maklum-balas" id="maklum-balas"></div>
+      <div class="nav-kuiz">
+        <button class="butang-nav butang-semak" onclick="semakJawapan()">✔️ Semak Jawapan</button>
+        <button class="butang-nav butang-seterusnya" id="butang-teruskan" onclick="soalanSeterusnya()">${labelNav}</button>
+      </div>
+    </div>`;
+}
+
+let pilihanSemasa = null;
+
+function pilihJawapan(indeks) {
+  if (telahSemak) return;
+  pilihanSemasa = indeks;
+  document.querySelectorAll('.pilihan-butang').forEach((b, i) => {
+    b.classList.toggle('dipilih', i === indeks);
+  });
+}
+
+function pilihBS(nilai) {
+  if (telahSemak) return;
+  pilihanSemasa = nilai;
+  document.getElementById('butang-betul').classList.toggle('dipilih', nilai === true);
+  document.getElementById('butang-betul').classList.toggle('betul', nilai === true);
+  document.getElementById('butang-salah').classList.toggle('dipilih', nilai === false);
+  document.getElementById('butang-salah').classList.toggle('salah', nilai === false);
+}
+
+function semakJawapan() {
+  if (telahSemak) return;
+  const soalan = bankSoalan[indeksSemasa];
+  const maklumBalasEl = document.getElementById('maklum-balas');
+  let betul = false;
+  let jawapanDiberi = pilihanSemasa;
+
+  if (soalan.jenis === 'aneka') {
+    if (pilihanSemasa === null) { alert("Sila pilih jawapan dahulu."); return; }
+    betul = pilihanSemasa === soalan.jawapan;
+    document.querySelectorAll('.pilihan-butang').forEach((b, i) => {
+      if (i === soalan.jawapan) b.classList.add('betul');
+      else if (i === pilihanSemasa && !betul) b.classList.add('salah');
+    });
+    jawapanDiberi = soalan.pilihan[pilihanSemasa];
+
+  } else if (soalan.jenis === 'betulsalah') {
+    if (pilihanSemasa === null) { alert("Sila pilih Betul atau Salah dahulu."); return; }
+    betul = pilihanSemasa === soalan.jawapan;
+    const bB = document.getElementById('butang-betul');
+    const bS = document.getElementById('butang-salah');
+    if (soalan.jawapan === true) { bB.classList.add('dipilih', 'betul'); bB.style.borderColor='#1a7a4a'; bB.style.background='#d4f5e4'; bB.style.color='#0f5c35'; }
+    else { bS.classList.add('dipilih', 'betul'); bS.style.borderColor='#1a7a4a'; bS.style.background='#d4f5e4'; bS.style.color='#0f5c35'; }
+    if (!betul) {
+      if (pilihanSemasa === true) { bB.style.borderColor='var(--merah)'; bB.style.background='#fde8e8'; bB.style.color='var(--merah)'; }
+      else { bS.style.borderColor='var(--merah)'; bS.style.background='#fde8e8'; bS.style.color='var(--merah)'; }
+    }
+    jawapanDiberi = pilihanSemasa ? "Betul" : "Salah";
+
+  } else {
+    const inputEl = document.getElementById('input-isi');
+    const nilaiInput = inputEl.value.trim().toLowerCase();
+    if (!nilaiInput) { alert("Sila isi jawapan dahulu."); return; }
+    betul = soalan.jawapan.some(j => nilaiInput.includes(j));
+    inputEl.classList.add(betul ? 'betul' : 'salah');
+    inputEl.disabled = true;
+    jawapanDiberi = inputEl.value.trim();
+  }
+
+  if (betul) markahMurid++;
+
+  jawapanMurid.push({
+    soalan: soalan.soalan,
+    jenis: soalan.jenis,
+    jawapanMurid: jawapanDiberi,
+    jawapanBetul: soalan.jenis === 'aneka' ? soalan.pilihan[soalan.jawapan] :
+                  soalan.jenis === 'betulsalah' ? (soalan.jawapan ? 'Betul' : 'Salah') :
+                  soalan.jawapan[0].toUpperCase() + soalan.jawapan[0].slice(1),
+    betul
+  });
+
+  maklumBalasEl.className = 'maklum-balas ' + (betul ? 'betul' : 'salah');
+  maklumBalasEl.innerHTML = betul
+    ? `✅ <strong>Betul!</strong> Tahniah, jawapan anda tepat.`
+    : `❌ <strong>Salah.</strong> Jawapan betul: <strong>${
+        soalan.jenis === 'aneka' ? soalan.pilihan[soalan.jawapan] :
+        soalan.jenis === 'betulsalah' ? (soalan.jawapan ? '✅ BETUL' : '❌ SALAH') :
+        soalan.jawapan[0]
+      }</strong>`;
+
+  telahSemak = true;
+  pilihanSemasa = null;
+  document.getElementById('butang-teruskan').style.display = 'block';
+  document.querySelector('.butang-semak').style.display = 'none';
+}
+
+function soalanSeterusnya() {
+  if (indeksSemasa < bankSoalan.length - 1) {
+    paparSoalan(indeksSemasa + 1);
+  } else {
+    paparKeputusan();
+  }
+}
+
+function paparKeputusan() {
+  document.getElementById('bahagian-kuiz').classList.add('tersembunyi');
+  const bahagianKeputusan = document.getElementById('bahagian-keputusan');
+  bahagianKeputusan.style.display = 'block';
+
+  const peratus = Math.round((markahMurid / bankSoalan.length) * 100);
+  const lulus = peratus >= 50;
+  const statusTeks = lulus ? '🎉 LULUS' : '📚 Perlu Belajar Lagi';
+  const statusKelas = lulus ? 'status-lulus' : 'status-gagal';
+  const tarikhMasa = new Date().toLocaleString('ms-MY', {
+    day: '2-digit', month: 'long', year: 'numeric',
+    hour: '2-digit', minute: '2-digit'
+  });
+
+  let htmlSemakan = jawapanMurid.map((item, i) => `
+    <div class="item-semakan ${item.betul ? 'betul' : 'salah'}">
+      <div class="soalan-mini">${i + 1}. ${item.soalan}</div>
+      <div class="jwp-murid">Jawapan anda: ${item.jawapanMurid || '(tiada jawapan)'}</div>
+      ${!item.betul ? `<div class="jwp-betul">✅ Jawapan betul: ${item.jawapanBetul}</div>` : ''}
+    </div>`).join('');
+
+  // Bina badan emel
+  const badanEmel = `Assalamualaikum Cikgu Ayu,
+
+Berikut adalah keputusan Kuiz Pencegahan Dadah:
+
+MAKLUMAT MURID
+--------------
+Nama    : ${namaMurid}
+Kelas   : ${kelasMurid}
+Tarikh  : ${tarikhMasa}
+
+KEPUTUSAN
+---------
+Markah  : ${markahMurid} / ${bankSoalan.length}
+Peratusan: ${peratus}%
+Status  : ${lulus ? 'LULUS' : 'GAGAL'}
+
+SEMAKAN JAWAPAN
+---------------
+${jawapanMurid.map((item, i) =>
+  `${i + 1}. ${item.soalan}
+   Jawapan murid : ${item.jawapanMurid}
+   Status        : ${item.betul ? '✅ Betul' : `❌ Salah (Betul: ${item.jawapanBetul})`}`
+).join('\n\n')}
+
+---
+Dihantar oleh sistem Kuiz Pencegahan Dadah
+SMK RLKT Lasah | Unit Bimbingan & Kaunseling`;
+
+  const subjekEmel = `Kuiz Dadah: ${namaMurid} (${kelasMurid}) - ${markahMurid}/${bankSoalan.length} (${peratus}%)`;
+  const pesanWA = `*KUIZ PENCEGAHAN DADAH*
+*SMK RLKT Lasah*
+
+👤 *Nama:* ${namaMurid}
+📚 *Kelas:* ${kelasMurid}
+📅 *Tarikh:* ${tarikhMasa}
+📊 *Markah:* ${markahMurid} / ${bankSoalan.length} (${peratus}%)
+🏆 *Status:* ${lulus ? '✅ LULUS' : '❌ Perlu Belajar Lagi'}`;
+
+  const pautanWA = `https://wa.me/60165510556?text=${encodeURIComponent(pesanWA)}`;
+
+  bahagianKeputusan.innerHTML = `
+    <div class="bulatan-markah" style="--peratus: ${peratus}%">
+      <div class="markah-angka">${markahMurid}</div>
+      <div class="markah-jumlah">/ ${bankSoalan.length}</div>
+    </div>
+    <div class="nama-murid-keputusan">🎓 ${namaMurid}</div>
+    <div class="kelas-keputusan">📚 ${kelasMurid} &nbsp;|&nbsp; ${tarikhMasa}</div>
+    <span class="status-keputusan ${statusKelas}">${statusTeks} — ${peratus}%</span>
+
+    <div class="semakan-tajuk">📋 Semakan Jawapan</div>
+    ${htmlSemakan}
+
+    <div class="bekas-emel">
+      <p>📲 Tekan butang di bawah — keputusan akan dihantar terus kepada <strong>Cikgu Ayu</strong> melalui <strong>WhatsApp</strong> secara automatik!</p>
+      <a href="${pautanWA}" target="_blank" class="butang-emel" style="background: linear-gradient(135deg, #128C7E, #25D366);">
+        💬 Hantar Keputusan via WhatsApp
+      </a>
+    </div>`;
+}
+</script>
+</body>
+</html>
